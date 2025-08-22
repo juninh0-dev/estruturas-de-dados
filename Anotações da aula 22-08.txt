@@ -1,0 +1,40 @@
+//todo nome de class começa com uma letra maiuscula (convenção provavelmente), e as chaves marcam o inicio e o fim
+class Humano {
+altura; (atributos são marcados normalmente por
+nome;	adjetivos e marcam as propriedades da
+idade; 	classe)
+
+andar() {...} (funções são verbos, ou seja
+comer() {...}	ações que vão ser executadas
+respirar() {...} com base em uma classe)
+}
+
+//o operador new transforma a classe num objeto.
+const pessoa1 = new Humano();
+pessoa1.altura = 1.77;
+pessoa1.nome = "Cleiton";
+pessoa1.idade = 17;
+
+const pessoa2 = new Humano();
+pessoa2.nome = "Jeff";
+pessoa2.idade = 50;
+pessoa2.altura = 2.30;
+
+//o operador extends faz com que uma classe e seus atributos sejam reutilizados por outra
+class Aluno extends Humano{
+ra;
+estudar(){...}
+frequentar(){...}
+}
+
+//repare que a classe aluno originalmente não definiu "nome", mas o exemplo é funcional por ser ligado a classe "Humano"
+const aluno1 = new Aluno();
+aluno1.nome = "Fulano";
+aluno1.estudar();
+
+//a class original (no caso humano no exemplo) é definida como "super". Ao utilizar o polimorfisomo (que é atribuir resultados diferentes para um método dependendo da classe...) você chama com super.função
+//a nova definição sobrepoem a anterior nesse caso
+*ainda na class Aluno*
+comer(){super.comer();...}
+
+# -> priva o atributo, fazendo com que ele não siga adiante através de um extend.
