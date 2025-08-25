@@ -1,4 +1,6 @@
-class Gerente{
+const Funcionario = require("./Funcionario");
+
+class Gerente extends Funcionario{
 
     calcularBonus() {
         this.bonus = (this.salario * 0.20);
