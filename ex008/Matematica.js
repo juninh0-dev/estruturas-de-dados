@@ -8,6 +8,9 @@ class Matematica{
     }
 
     static fatorial(n){
-        return n;
+        for (let i; i > n; i++){
+            
+        };
+        return n; 
     }
 }
