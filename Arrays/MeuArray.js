@@ -31,16 +31,44 @@ class MeuArray{
     
     }
     obterElemento(indice) {
-        
+        //Verificando se o indice é valido
         if(indice < 0 || indice >= this.#tamanho){
             return undefined;
         }
-        return this.#items;
+        //E retornando o elemento
+        return this.#items[indice];
     }
-    tamanhoArray() { }
-    limpar() { }
-    editar(indice, novoValor) { }
-    obterIndice(valor) { }
+    tamanhoArray() { 
+        //Apenas retornando o tamanho
+        return this.#tamanho;
+    }
+
+    //Removendo todos os elementos do array
+    limpar() { 
+        this.#items = [];
+        this.#tamanho = 0;
+
+    }
+    editar(indice, novoValor) { 
+        //Verificando se o indice é valido
+        if(indice < 0 || indice >= this.#tamanho){
+            return undefined;
+        }
+
+        //Alterando o valor
+        this.#items[indice] = novoValor;
+
+        return this.#items[indice];
+    }
+    obterIndice(valor) { 
+        //Percorrendo o array
+        for(let i = 0; i < this.#tamanho; i++){
+            //Verificando se o valor é igual ao elemento
+            if(this.#items[i] === valor){
+                return i; //Retornando o indice
+            }
+        }
+    }
 }
 
 module.exports = MeuArray;
