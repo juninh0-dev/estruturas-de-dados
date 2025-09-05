@@ -10,4 +10,4 @@ tarefas.remover();
 
 tarefas.mostrarTarefas(); // Irá mostrar todos as tarefas que não foram removidas
 
-console.log(tarefas.obterElemento(4));
+//console.log(tarefas.obterElemento(4));

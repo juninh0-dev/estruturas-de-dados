@@ -6,9 +6,20 @@ class MeuArray{
     adicionar(elemento) { 
         //Inserindo valores no array
         this.#nomes[this.#tamanho] = elemento;
+        let verificador = "";
+
+        if(this.#tamanho >= 1){
+            if(this.#nomes == verificador){
+                this.#nomes = null;
+                return "Esse nome já exite";
+
+            }
+        }
 
         //incrementando
         this.#tamanho++;
+
+        
     }
     
     remover() {
@@ -37,7 +48,7 @@ class MeuArray{
             return undefined;
         }
         //E retornando o elemento
-        return this.#nomes[indice];
+        return `Funcionário ${indice + 1}: ` +  this.#nomes[indice];
     }
     
     tamanhoArray() { 
@@ -72,7 +83,7 @@ class MeuArray{
         }
     }
 
-    mostrarTarefas(){
+    mostrarElementos(){
         for(let i = 0; i < this.#tamanho; i++){
 
             console.log(this.#nomes[i]);
