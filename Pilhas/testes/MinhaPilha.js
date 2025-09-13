@@ -13,7 +13,7 @@ class MinhaPilha{
         this.#items[this.#tamanho] = elemento;
         
         //Incrementando tamnho da pilha
-        this.tamanho++;
+        this.#tamanho++;
     
     }
 
@@ -28,7 +28,7 @@ class MinhaPilha{
         const ultimoItem = this.#items[this.#tamanho - 1];
         
         //Remove o ultimo item
-        delete this.#items[this.tamanho - 1];
+        delete this.#items[this.#tamanho - 1];
 
         //decrementa o tamanho
         this.#tamanho--;
