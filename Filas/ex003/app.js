@@ -7,7 +7,7 @@ bilhete.enqueue("Visitante 2");
 bilhete.enqueue("Visitante 3");
 bilhete.enqueue("Visitante 4");
 
-let contador = 1;
+let contaor = 1;
 
 while(!bilhete.estaVazia()){
     console.log(`O visitante ${contador}, embarcou no brinquedo.`);
