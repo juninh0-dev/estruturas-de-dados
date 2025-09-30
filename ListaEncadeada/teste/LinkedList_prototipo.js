@@ -1,3 +1,88 @@
 class LinkedList{
     #head = undefined
+    #length = 0;
+    // Inserir no início da Lista
+    insertAtBegining(value){ 
+        
+        //Cria um novo nó
+        let newNode = new Node(value);
+
+        // O novo nó aponta para o antigo "head"
+        newNode.next = this.#head;
+
+        // Atualiza o "head" para o novo nó
+        this.#head = newNode;
+
+        // Incrementa o tamanho da lista
+        this.#length++;
+    }
+    
+    //Inserir no fim da lista
+    insertAtEnd(value){ 
+        let newNode = new Node(value);
+        
+        // Se a lista estiver vazia, o novo nó se torna o "head"
+        if(this.#head === undefined){
+            this.head = newNode;
+            return;
+        }
+
+        // Percorre até o ultimo nó
+        let current = this.#head;
+        while(current.next !== undefined){
+            current = current.next;
+        }
+
+        // Faz o último nó apontar para o novo nó
+        current.next = newNode;
+        
+        this.next;
+    
+    }
+
+    // Remover um nó por vlaor
+    removeByValue(value){ 
+        // A lista está vazia
+        if(this.#head === undefined){
+            return;
+        }
+
+        // Se o valor a ser removido estiver no primeiro nó
+        if(this.#head.value === value){
+
+            //Atualiza o "head" para o próximo nó
+            this.#head = this.#head.next;
+        }
+
+        // Percorre a lista procurando o nó a ser removido
+        let current = this.#head;
+        while (current.next !== undefined && current.next.value !== value) {
+            current = current.next.next;
+        }
+
+        // Se o nó foi encontrado, ajusta o ponteiro para pular o nó removido
+        if(current.next !== undefined) {
+            current.next = current.next.next;
+        }
+
+        this.#length--;
+    }
+
+    // Buscar um nó por valor
+    find(value){ 
+        let current = this.#head;
+
+        // Percorre a lista até encontrar o nó ou até o final
+        while (current !== undefined){
+            console.log(current.value);
+            if(current.value === value) {
+                return current.
+            }
+        }
+    }
+    size(){ }
+    isEmpty(){ }
+    toString(){ }
 }
+
+module.exports = LinkedList;
