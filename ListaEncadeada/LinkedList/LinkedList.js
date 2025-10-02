@@ -73,7 +73,7 @@ class LinkedList{
         if(current.next !== undefined) {
             current.next = current.next.next;
         }
-
+        
         this.#length--;
     }
 
