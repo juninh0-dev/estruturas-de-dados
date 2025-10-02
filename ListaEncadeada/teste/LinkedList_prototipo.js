@@ -76,13 +76,37 @@ class LinkedList{
         while (current !== undefined){
             console.log(current.value);
             if(current.value === value) {
-                return current.
+                return current; // Não encontrado
             }
+            current = current.next;
         }
+        return undefined; // Se não encontrar retorna undefined
     }
-    size(){ }
-    isEmpty(){ }
-    toString(){ }
+    size(){ 
+        // Retorna o tamanho da lista
+
+        let count = 0;
+        let current = this.#head;
+        while (current !== undefined){
+            count++;
+            current = current.next;
+        }
+
+        return count;
+    }
+    // Retorna true se a lista estiver vazia
+    isEmpty = () => this.#head === undefined;
+
+    // Exibir a lista (opcional, para facilitar a visualização)
+    toString(){ 
+        let current = this.#head;
+        let list = '';
+        while(current !== undefined) {
+            list += current.value + ' -> ';
+            current = current.next;
+        }
+        console.log(list + 'undefined');
+    }
 }
 
 module.exports = LinkedList;
