@@ -1,0 +1,6 @@
+class Grafo {
+    constructor(){
+        
+    }
+
+}
