@@ -51,9 +51,4 @@ class Grafo {
 
 // Exemplo de uso
 
-const meuGrafo = new Grafo();
-meuGrafo.adicionarVertice('A');
-meuGrafo.adicionarAresta('A', 'B');
-meuGrafo.adicionarAresta('A', 'C');
-meuGrafo.adicionarAresta('B', 'D');
-meuGrafo.imprimirGrafo();
+module.exports = Grafo;
