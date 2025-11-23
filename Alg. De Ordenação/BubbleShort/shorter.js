@@ -1,0 +1,6 @@
+class Shorter {
+    /** 
+     * Bubble Short
+     * 
+    */
+}
