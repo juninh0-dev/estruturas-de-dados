@@ -1,10 +1,10 @@
-class Shorter {
+class Sorter {
     /** 
      * Bubble Short
      * 
     */
 
-    static bubbleShort(arr){
+    static bubbleSort(arr){
         const array = [...arr]; // copia para não alterar o original
         let n = array.length;
         let trocou;

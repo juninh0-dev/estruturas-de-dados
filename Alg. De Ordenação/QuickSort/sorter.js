@@ -1,10 +1,10 @@
-class Shorter {
+class Sorter {
     /** 
-     * Quick Short
+     * Quick Sort
      * 
     */
 
-    static quickShort(arr) {
+    static quickSort(arr) {
         if (arr.length <= 1) return arr;
 
         const pivot = arr[arr.length - 1];
@@ -19,6 +19,6 @@ class Shorter {
                 maiores.push(arr[i])
             }
         }
-        return [...Shorter.quickShort(menores), pivot, ...Shorter.quickShort(maiores)];
+        return [...Sorter.quickSort(menores), pivot, ...Sorter.quickSort(maiores)];
     }
 }
