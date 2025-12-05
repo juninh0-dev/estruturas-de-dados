@@ -1,21 +1,21 @@
 class Node {
     constructor(value) {
         this.value = value;
-        this.next = undefined; // Próximo nó
-        this.prev = undefined; // Nó anterior
+        this.next = undefined;
+        this.prev = undefined;
     }
 }
 
 class DoublyLinkedList {
-    #head = undefined; // Primeiro nó (cabeça)
-    #tail = undefined; // Último nó (cauda)
-    #length = 0; // Tamanho da lista
+    #head = undefined;
+    #tail = undefined;
+    #length = 0;
 
-    // Adicionar um nó ao final da lista
+    // Adicionar ao final
     append(value) {
         const newNode = new Node(value);
 
-        if (this.#head == undefined) {
+        if (this.#head === undefined) {
             this.#head = newNode;
             this.#tail = newNode;
         } else {
@@ -26,11 +26,12 @@ class DoublyLinkedList {
 
         this.#length++;
     }
-    // Adicionar um nó ao início da lista
+
+    // Adicionar no início
     prepend(value) {
         const newNode = new Node(value);
 
-        if (this.#head == undefined) {
+        if (this.#head === undefined) {
             this.#head = newNode;
             this.#tail = newNode;
         } else {
@@ -42,14 +43,15 @@ class DoublyLinkedList {
         this.#length++;
     }
 
-    // Remover o nó do final da lista
+    // Remover último
     removeLast() {
-        if (this.#tail == undefined) return undefined;
+        if (this.#tail === undefined) return undefined;
 
         const removedNode = this.#tail;
-        if (this.#tail === this.#head) {
-            this.#head = null;
-            this.#tail = null;
+
+        if (this.#length === 1) {
+            this.#head = undefined;
+            this.#tail = undefined;
         } else {
             this.#tail = this.#tail.prev;
             this.#tail.next = undefined;
@@ -59,12 +61,13 @@ class DoublyLinkedList {
         return removedNode.value;
     }
 
-    // Remover o nó do início da lista
+    // Remover primeiro
     removeFirst() {
-        if (this.#head == undefined) return undefined;
+        if (this.#head === undefined) return undefined;
 
         const removedNode = this.#head;
-        if (this.#head === this.#tail) {
+
+        if (this.#length === 1) {
             this.#head = undefined;
             this.#tail = undefined;
         } else {
@@ -76,7 +79,7 @@ class DoublyLinkedList {
         return removedNode.value;
     }
 
-    // Percorrer a lista do início ao fim
+    // Percorrer do início ao fim
     traverse() {
         if (this.isEmpty()) {
             console.log("A lista está vazia.");
@@ -90,7 +93,7 @@ class DoublyLinkedList {
         }
     }
 
-    // Percorrer a lista do fim ao início
+    // Percorrer do fim ao início
     traverseReverse() {
         if (this.isEmpty()) {
             console.log("A lista está vazia.");
@@ -103,65 +106,60 @@ class DoublyLinkedList {
             current = current.prev;
         }
     }
-    // Inserir um nó em uma posição específica
+
+    // Inserir em posição específica
     insertAt(value, index) {
         if (index < 0 || index > this.#length) return undefined;
 
+        if (index === 0) return this.prepend(value);
+        if (index === this.#length) return this.append(value);
+
         const newNode = new Node(value);
 
-        if (index === 0) {
-            this.prepend(value);
-            return;
-        }
-
-        if (index === this.#length) {
-            this.append(value);
-            return;
-        }
-
         let current = this.#head;
-        let previous;
         let count = 0;
 
         while (count < index) {
-            previous = current;
             current = current.next;
             count++;
         }
 
-        newNode.next = current;
-        newNode.prev = previous;
+        const previous = current.prev;
+
         previous.next = newNode;
+        newNode.prev = previous;
+
+        newNode.next = current;
         current.prev = newNode;
 
         this.#length++;
     }
-    // Encontrar o índice de um valor específico
+
+    // Buscar índice por valor
     find(value) {
         let current = this.#head;
         let index = 0;
 
         while (current) {
-            if (current.value === value)
-                return index; // Valor encontrado
-
+            if (current.value === value) return index;
             current = current.next;
             index++;
         }
 
-        return -1; // Valor não encontrado
+        return -1;
     }
-    // Remover um nó em uma posição específica
+
+    // Remover por índice
     removeAt(index) {
-        if (index < 0 || index >= this.#length) return null;
+        if (index < 0 || index >= this.#length) return undefined;
 
         if (index === 0) return this.removeFirst();
-        if(index === this.#length - 1) return this.removeLast();
+        if (index === this.#length - 1) return this.removeLast();
 
         let current = this.#head;
         let count = 0;
 
-        while(count < index){
+        while (count < index) {
             current = current.next;
             count++;
         }
@@ -173,22 +171,21 @@ class DoublyLinkedList {
         return current.value;
     }
 
-    // Retorna o tamanho da lista
     size = () => this.#length;
 
-    // Verifica se a lista está vazia
     isEmpty = () => this.#length === 0;
-    
-    // Exibir a lista (opcional, para facilitar a visualização)
+
     toString() {
         let current = this.#head;
-        let list = '';
-        while(current !== undefined){
-            list += current.value + ' -> ';
+        let list = "";
+
+        while (current) {
+            list += current.value + " <-> ";
             current = current.next;
         }
 
-        console.log(list + 'undefined');
+        console.log(list + "null");
     }
 }
+
 module.exports = DoublyLinkedList;
