@@ -128,6 +128,11 @@ class AVLTree {
 
     return this._searchNode(node.right, value);
   }
+
+  getRoot() {
+    return this.#root;
+  }
+
 }
 
 module.exports = AVLTree;
